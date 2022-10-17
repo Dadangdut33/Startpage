@@ -45,6 +45,28 @@ body {
 }
 
 /* --------------------------------------- */
+/* Colors */
+.color-primary {
+	color: var(--primary-color);
+}
+
+.color-primary-dim {
+	color: var(--primary-dim-color);
+}
+
+.color-secondary {
+	color: var(--secondary-color);
+}
+
+.color-secondary-dim {
+	color: var(--secondary-dim-color);
+}
+
+.color-third {
+	color: var(--third-color);
+}
+
+/* --------------------------------------- */
 /* cover-img and timer */
 .img-holder {
 	max-width: 17em;
@@ -204,26 +226,6 @@ body {
 }
 
 /* --------------------------------------- */
-/* Colors */
-.color-primary {
-	color: var(--primary-color);
-}
-
-.color-primary-dim {
-	color: var(--primary-dim-color);
-}
-
-.color-secondary {
-	color: var(--secondary-color);
-}
-
-.color-secondary-dim {
-	color: var(--secondary-dim-color);
-}
-
-.color-third {
-	color: var(--third-color);
-}
 
 /* --------------------------------------- */
 /* Util */
@@ -257,3 +259,37 @@ body {
 	transform: scaleX(1);
 	transform-origin: bottom left;
 }
+
+.d-flex {
+	display: flex;
+}
+
+.flex-column {
+	flex-direction: column;
+}
+
+.flex-row {
+	flex-direction: row;
+}
+
+.flex-wrap {
+	flex-wrap: wrap;
+}
+
+.flex-gap-1 {
+	gap: 1rem;
+}
+
+.flex-gap-2 {
+	gap: 2rem;
+}
+
+.flex-gap-3 {
+	gap: 3rem;
+}
+
+.flex-gap-4 {
+	gap: 4rem;
+}
+
+/* --------------------------------------- */
