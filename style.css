@@ -94,6 +94,10 @@ body {
 	font-size: 4rem;
 }
 
+.time-container {
+	position: relative;
+}
+
 /* --------------------------------------- */
 /* searchbox */
 .searchbox {
@@ -226,6 +230,53 @@ body {
 }
 
 /* --------------------------------------- */
+/* Input */
+.input-wrapper {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.form-checkbox {
+	display: grid;
+	grid-template-columns: 1em auto;
+	gap: 0.5em;
+}
+
+.form-checkbox label {
+	padding-top: 2px;
+}
+
+.input-field {
+	font-size: 1rem;
+	font-family: "Fira Code", monospace;
+	padding: 0.7em;
+	color: var(--search-input-color);
+	background-color: var(--bg-color);
+	border: none;
+	outline: none;
+}
+
+.input-field:focus-within {
+	outline: 1px var(--secondary-color) solid;
+}
+
+.input-button {
+	font-size: 1rem;
+	font-family: "Fira Code", monospace;
+	padding: 0 1em;
+	color: var(--search-btn-color);
+	background-color: var(--bg-color);
+	border: none;
+	outline: none;
+	transition: background-color 0.4s ease;
+}
+
+.input-button:focus-visible,
+.input-button:hover {
+	cursor: pointer;
+	background-color: rgba(58, 34, 34, 0.1);
+}
 
 /* --------------------------------------- */
 /* Util */
@@ -290,6 +341,14 @@ body {
 
 .flex-gap-4 {
 	gap: 4rem;
+}
+
+.w-100 {
+	width: 100%;
+}
+
+.mw-100 {
+	max-width: 100%;
 }
 
 /* --------------------------------------- */

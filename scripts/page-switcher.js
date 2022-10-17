@@ -23,11 +23,11 @@ function switchTo(page) {
 	localStorage.setItem("lastPage", page);
 }
 
-function init() {
+function initPageSwitcher() {
 	const lastPage = localStorage.getItem("lastPage");
 	if (lastPage) switchTo(lastPage);
 }
 
-init();
+initPageSwitcher();
 
 // Path: scripts\setting.js
