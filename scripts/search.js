@@ -14,13 +14,13 @@ function isWebUrl(value) {
 
 function parseSearch(q) {
 	q = q.trim();
-	if (q == "") {
-		return;
-	}
+	if (q == "") return;
+
 	if (isWebUrl(q)) {
 		window.open(q, "_self");
 		return;
 	}
+
 	targetURL = "https://google.com/search?q=" + encodeURIComponent(q);
 	window.open(targetURL, "_self");
 }
@@ -30,6 +30,7 @@ search.onkeyup = (e) => {
 		parseSearch(search.value);
 	}
 };
+
 searchButton.onclick = () => {
 	parseSearch(search.value);
 };

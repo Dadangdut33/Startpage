@@ -6,10 +6,12 @@
 		<link rel="preload" as="font" href="/fonts/Fira Code Regular Nerd Font Complete.woff2" type="font/woff2" crossorigin="anonymous" />
 		<script defer src="/scripts/timer.js"></script>
 		<script defer src="/scripts/search.js"></script>
+		<script defer src="/scripts/page-switcher.js"></script>
+		<script defer src="/scripts/load-bookmark.js"></script>
 	</head>
 
 	<body>
-		<div class="container">
+		<div class="container" id="home">
 			<div class="img-holder">
 				<img id="cover-img" src="/images/lein.gif" alt="Cool Img" />
 				<div class="time-container" id="time">00<br />--<br />00</div>
@@ -21,7 +23,7 @@
 					<input type="search" id="search" />
 					<button id="searchButton">&#61442;</button>
 				</div>
-				<div class="bookmarks">
+				<div class="bookmarks" id="bookmarks">
 					<div class="bookmarks-row">
 						<a href="https://youtube.com">YouTube</a>
 						<a href="https://discord.com/app">Discord</a>
@@ -34,13 +36,19 @@
 						<a href="https://keybr.com">Keybr</a>
 						<a href="https://monkeytype.com">Monkey Type</a>
 					</div>
-					<div class="bookmarks-row">
-						<a href="https://ctftime.org">CTF Time</a>
-						<a href="https://gchq.github.io/CyberChef/">Cyber Chef</a>
-						<a href="https://tryhackme.com/">Try Hack Me</a>
-						<a href="https://book.hacktricks.xyz/welcome/readme">Hack Tricks</a>
-					</div>
 				</div>
+			</div>
+		</div>
+
+		<div class="container hidden" id="setting">
+			<div class="main">
+				<h1>Setting</h1>
+			</div>
+		</div>
+
+		<div class="container hidden" id="about">
+			<div class="main">
+				<h1>About</h1>
 			</div>
 		</div>
 	</body>
