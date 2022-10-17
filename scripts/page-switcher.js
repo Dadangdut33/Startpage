@@ -1,11 +1,11 @@
 const homeDiv = document.getElementById("home");
 const settingDiv = document.getElementById("setting");
-const searchDiv = document.getElementById("search");
+const aboutDiv = document.getElementById("about");
 const validOption = ["home", "setting", "about"];
 const divDict = {
 	home: homeDiv,
 	setting: settingDiv,
-	search: searchDiv,
+	about: aboutDiv,
 };
 
 function switchTo(page) {

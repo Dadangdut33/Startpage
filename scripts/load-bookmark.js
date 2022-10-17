@@ -12,5 +12,5 @@ if (bookmarks) {
 	});
 } else {
 	const bookmarksDiv = document.getElementById("bookmarks");
-	bookmarksDiv.innerHTML = "<div>No bookmarks found. Click <span class='link' onClick='switchTo(\"setting\")'>here</span> to add some.</div>";
+	// bookmarksDiv.innerHTML = "<div>No bookmarks found. Click <span class='link' onClick='switchTo(\"setting\")'>here</span> to add some.</div>";
 }

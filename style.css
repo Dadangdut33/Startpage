@@ -44,12 +44,6 @@ body {
 	box-shadow: 12px 12px 0px var(--search-btn-color);
 }
 
-.link {
-	color: var(--secondary-color);
-	text-decoration: none;
-	cursor: pointer;
-}
-
 /* --------------------------------------- */
 /* cover-img and timer */
 .img-holder {
@@ -122,6 +116,7 @@ body {
 /* main */
 .main {
 	color: var(--normal-text-color);
+	position: relative;
 	width: 100%;
 	padding: 1.5em;
 	background-color: hsla(232, 14%, 31%, 0.3);
@@ -158,6 +153,16 @@ body {
 }
 
 /* --------------------------------------- */
+/* info icons */
+.nav-icons {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	display: flex;
+	gap: 0.5em;
+}
+
+/* --------------------------------------- */
 /* bookmarks */
 .bookmarks {
 	display: flex;
@@ -179,11 +184,18 @@ body {
 	color: var(--primary-color);
 }
 
+.bookmarks a:before {
+	content: "";
+	transition: all 0.25s ease-in-out;
+	opacity: 0;
+}
+
 .bookmarks a:hover::before,
 .bookmarks a:focus-visible::before {
 	content: "\0ea9c";
 	position: absolute;
 	left: -0.75rem;
+	opacity: 1;
 }
 
 .bookmarks-row {
@@ -217,4 +229,31 @@ body {
 /* Util */
 .hidden {
 	display: none;
+}
+
+.link {
+	text-decoration: none;
+	color: var(--secondary-color);
+	cursor: pointer;
+	outline: none;
+	display: inline-block;
+	position: relative;
+}
+
+.link:after {
+	content: "";
+	position: absolute;
+	width: 100%;
+	transform: scaleX(0);
+	height: 2px;
+	bottom: -3px;
+	left: 0;
+	background-color: var(--primary-color);
+	transform-origin: bottom right;
+	transition: transform 0.25s ease-out;
+}
+
+.link:hover:after {
+	transform: scaleX(1);
+	transform-origin: bottom left;
 }

@@ -2,6 +2,7 @@
 <html>
 	<head>
 		<title>~/startpage</title>
+		<link rel="stylesheet" href="/styles/animation.css" type="text/css" media="screen" />
 		<link rel="stylesheet" href="/style.css" type="text/css" media="screen" />
 		<link rel="preload" as="font" href="/fonts/Fira Code Regular Nerd Font Complete.woff2" type="font/woff2" crossorigin="anonymous" />
 		<script defer src="/scripts/timer.js"></script>
@@ -17,10 +18,15 @@
 				<div class="time-container" id="time">00<br />--<br />00</div>
 			</div>
 			<div class="main">
+				<div class="nav-icons">
+					<span class="link" onclick="switchTo('home')">🏠</span>
+					<span class="link" onclick="switchTo('setting')">⚙️</span>
+					<span class="link" onclick="switchTo('about')">ℹ️</span>
+				</div>
 				<h1 class="greeting">Hello, <span id="username">Dadang</span></h1>
 				<h2 id="today">Today is someday</h2>
 				<div class="searchbox">
-					<input type="search" id="search" />
+					<input type="search" id="search" placeholder="Search..." />
 					<button id="searchButton">&#61442;</button>
 				</div>
 				<div class="bookmarks" id="bookmarks">
@@ -42,13 +48,27 @@
 
 		<div class="container hidden" id="setting">
 			<div class="main">
+				<div class="nav-icons">
+					<span class="link" onclick="switchTo('home')">🏠</span>
+					<span class="link" onclick="switchTo('setting')">⚙️</span>
+					<span class="link" onclick="switchTo('about')">ℹ️</span>
+				</div>
 				<h1>Setting</h1>
 			</div>
 		</div>
 
 		<div class="container hidden" id="about">
 			<div class="main">
+				<div class="nav-icons">
+					<span class="link" onclick="switchTo('home')">🏠</span>
+					<span class="link" onclick="switchTo('setting')">⚙️</span>
+					<span class="link" onclick="switchTo('about')">ℹ️</span>
+				</div>
 				<h1>About</h1>
+				<p>
+					A simple startpage made with vanilla html, js, and css. Some ideas and designed are inspired and taken from <a class="link">r/startpages.</a> <br />
+					<br />Source code of this project is available at <a class="link" href="https://github.com/Dadangdut33/vanilla-startpage">github.</a>
+				</p>
 			</div>
 		</div>
 	</body>
