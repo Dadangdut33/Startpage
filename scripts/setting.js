@@ -7,7 +7,8 @@ const titleConstant = "winTitle",
 	showClockInImgConstant = "showClock-image",
 	showClockInDateConstant = "showClock-date",
 	showSecondsConstant = "showSeconds",
-	amPmConstant = "amPm";
+	amPmConstant = "amPm",
+	searchEngineConstant = "searchEngine";
 
 const username_Display = document.getElementById("user-display"),
 	coverImg_Display = document.getElementById("coverImg-display"),
@@ -23,7 +24,8 @@ const winTitle_Input = document.getElementById(titleConstant),
 	showClockInImage_Input = document.getElementById(showClockInImgConstant),
 	showClockInDate_Input = document.getElementById(showClockInDateConstant),
 	showSeconds_Input = document.getElementById(showSecondsConstant),
-	amPm_Input = document.getElementById(amPmConstant);
+	amPm_Input = document.getElementById(amPmConstant),
+	searchEngine_Input = document.getElementById(searchEngineConstant);
 
 // ------------------------------
 const coverImageMap = {
@@ -45,7 +47,8 @@ function init_Setting() {
 		selectCoverImg = localStorage.getItem(selectCoverImgConstant),
 		coverImg = localStorage.getItem(coverImgConstant),
 		coverImgOpacity = localStorage.getItem(coverImgOpacityConstant),
-		coverImgBlur = localStorage.getItem(coverImgBlurConstant);
+		coverImgBlur = localStorage.getItem(coverImgBlurConstant),
+		searchEngine = localStorage.getItem(searchEngineConstant);
 
 	if (winTitle) {
 		winTitle_Input.value = winTitle;
@@ -73,8 +76,8 @@ function init_Setting() {
 	if (showClockInDate) {
 		showClockInDate_Input.checked = showClockInDate == "true";
 	} else {
-		showClockInDate_Input.checked = true;
-		localStorage.setItem(showClockInDateConstant, true);
+		showClockInDate_Input.checked = false;
+		localStorage.setItem(showClockInDateConstant, false);
 	}
 
 	if (showSeconds) {
@@ -125,6 +128,13 @@ function init_Setting() {
 		coverImgBlur_Input.value = 2;
 		coverImgBlur_Display.innerText = "(2 px)";
 		localStorage.setItem(coverImgBlurConstant, "2");
+	}
+
+	if (searchEngine) {
+		searchEngine_Input.value = searchEngine;
+	} else {
+		searchEngine_Input.value = "google";
+		localStorage.setItem(searchEngineConstant, "google");
 	}
 }
 
@@ -183,4 +193,8 @@ coverImgBlur_Input.oninput = (e) => {
 	localStorage.setItem(coverImgBlurConstant, coverImgBlur_Input.value.toString());
 	coverImgBlur_Display.innerText = `(${coverImgBlur_Input.value} px)`;
 	coverImg_Display.style.filter = `blur(${coverImgBlur_Input.value}px)`;
+};
+
+searchEngine_Input.onchange = (e) => {
+	localStorage.setItem(searchEngineConstant, searchEngine_Input.value);
 };

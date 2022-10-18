@@ -29,5 +29,3 @@ function initPageSwitcher() {
 }
 
 initPageSwitcher();
-
-// Path: scripts\setting.js
