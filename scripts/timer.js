@@ -9,7 +9,7 @@ function setTime() {
 	const amPm = localStorage.getItem("amPm") == "true";
 	let today = new Date();
 
-	todayHeader.innerText = `Today is ${days[today.getDay()]}, ${months[today.getMonth()]} ${today.getDate()}, ${today.getFullYear()}.`;
+	todayHeader.innerText = `${days[today.getDay()]} ${today.getDate()} ${months[today.getMonth()]}  ${today.getFullYear()}.`;
 	let H = String(today.getHours()).padStart(2, "0"),
 		M = String(today.getMinutes()).padStart(2, "0"),
 		S = String(today.getSeconds()).padStart(2, "0"),
@@ -31,7 +31,7 @@ function setTime() {
 	timeDiv.innerHTML = HM;
 }
 
+setTime();
 setTimeout(() => {
-	setTime();
 	setInterval(setTime, 1000);
 }, toExactSecond);

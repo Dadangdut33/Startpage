@@ -2,27 +2,30 @@
 <html>
 	<head>
 		<title>~/startpage</title>
-		<link rel="stylesheet" href="/style.css" type="text/css" media="screen" />
-		<link rel="stylesheet" href="/styles/animation.css" type="text/css" />
-		<link rel="preload" as="font" href="/fonts/Fira Code Regular Nerd Font Complete.woff2" type="font/woff2" crossorigin="anonymous" />
-		<script defer src="/scripts/timer.js"></script>
-		<script defer src="/scripts/search.js"></script>
-		<script defer src="/scripts/setting.js"></script>
-		<script defer src="/scripts/page-switcher.js"></script>
-		<script defer src="/scripts/load-bookmark.js"></script>
+		<link rel="icon" href="favicon.ico" sizes="24x24" />
+		<link rel="stylesheet" href="style.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="styles/util.css" type="text/css" media="screen" />
+		<link rel="stylesheet" href="styles/animation.css" type="text/css" />
+		<link rel="preload" as="font" href="fonts/Fira Code Regular Nerd Font Complete.woff2" type="font/woff2" crossorigin="anonymous" />
+		<script defer src="scripts/timer.js"></script>
+		<script defer src="scripts/search.js"></script>
+		<script defer src="scripts/setting.js"></script>
+		<script defer src="scripts/page-switcher.js"></script>
+		<script defer src="scripts/load-bookmark.js"></script>
 	</head>
 
 	<body>
+		<!-- Home Page -->
 		<div class="container" id="home">
 			<div class="img-holder">
-				<img id="cover-img" src="/images/lein.gif" alt="Cool Img" />
+				<img id="cover-img" src="images/lein.gif" alt="Cool Img" />
 				<div class="time-container" id="time">00<br />--<br />00</div>
 			</div>
 			<div class="main">
 				<div class="nav-icons">
-					<span class="link" onclick="switchTo('home')">🏠</span>
-					<span class="link" onclick="switchTo('setting')">⚙️</span>
-					<span class="link" onclick="switchTo('about')">ℹ️</span>
+					<span onclick="switchTo('home')">🏠</span>
+					<span onclick="switchTo('setting')">⚙️</span>
+					<span onclick="switchTo('about')">ℹ️</span>
 				</div>
 				<h1 class="greeting">Hello, <span id="user-display">Dadang</span></h1>
 				<h2 id="today">Today is someday</h2>
@@ -47,14 +50,15 @@
 			</div>
 		</div>
 
+		<!-- Setting Page -->
 		<div class="container hidden" id="setting">
 			<div class="main d-flex flex-column flex-gap-1">
 				<div class="nav-icons">
-					<span class="link" onclick="switchTo('home')">🏠</span>
-					<span class="link" onclick="switchTo('setting')">⚙️</span>
-					<span class="link" onclick="switchTo('about')">ℹ️</span>
+					<span onclick="switchTo('home')">🏠</span>
+					<span onclick="switchTo('setting')">⚙️</span>
+					<span onclick="switchTo('about')">ℹ️</span>
 				</div>
-				<h1>Setting</h1>
+				<h1 class="mx-auto">Setting</h1>
 
 				<div class="input-wrapper">
 					<label for="winTitle">Window Title</label>
@@ -64,6 +68,11 @@
 				<div class="input-wrapper">
 					<label for="user">Username</label>
 					<input class="input-field" type="text" id="user" />
+				</div>
+
+				<div class="input-wrapper hidden">
+					<label for="custom-image">Custom Image Link</label>
+					<input class="input-field" type="text" id="custom-image" />
 				</div>
 
 				<div class="input-wrapper flex-row flex-gap-1">
@@ -80,22 +89,27 @@
 			</div>
 		</div>
 
+		<!-- About Page -->
 		<div class="container hidden" id="about">
 			<div class="main d-flex flex-column flex-gap-1">
 				<div class="nav-icons">
-					<span class="link" onclick="switchTo('home')">🏠</span>
-					<span class="link" onclick="switchTo('setting')">⚙️</span>
-					<span class="link" onclick="switchTo('about')">ℹ️</span>
+					<span onclick="switchTo('home')">🏠</span>
+					<span onclick="switchTo('setting')">⚙️</span>
+					<span onclick="switchTo('about')">ℹ️</span>
 				</div>
-				<h1>About</h1>
+				<h1 class="mx-auto">About</h1>
 				<p>
-					A simple startpage made with vanilla html, js, and css. Some ideas and design are inspired and taken from <a class="link">r/startpages.</a><br />
+					A simple startpage made with vanilla html, js, and css. Some ideas and design are inspired and taken from <a class="link">r/startpages</a> mainly
+					<a class="link" href="https://github.com/aman333nolawz/startpage-v2">this one.</a><br />
 					<br />Source code of this project is available at <a class="link" href="https://github.com/Dadangdut33/vanilla-startpage">github.</a>
 				</p>
+
+				<hr />
+
+				<h2 class="mb-0">Changelog</h2>
 				<div>
-					<a href="https://github.com/Dadangdut33/vanilla-startpage/stargazers"
-						><img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/Dadangdut33/vanilla-startpage?style=social"
-					/></a>
+					<p>V1.0.0</p>
+					<p>Initial Release</p>
 				</div>
 			</div>
 		</div>
