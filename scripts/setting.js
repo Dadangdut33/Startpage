@@ -37,6 +37,15 @@ const coverImageMap = {
 	pic_6: "images/69414913.gif",
 };
 
+function isJsonString(str) {
+	try {
+		JSON.parse(str);
+	} catch (e) {
+		return false;
+	}
+	return true;
+}
+
 function init_Setting() {
 	const winTitle = localStorage.getItem(titleConstant),
 		username = localStorage.getItem(usernameConstant),
