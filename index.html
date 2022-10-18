@@ -85,10 +85,25 @@
 					<input class="input-field" type="text" id="coverImg" disabled />
 				</div>
 
+				<div class="input-wrapper">
+					<label for="coverImg-opacity">Cover Image Opacity <span id="coverImgOpacity-display"></span></label>
+					<input class="input-field" type="range" id="coverImgOpacity" min="0" max="1" step="0.1" />
+				</div>
+
+				<div class="input-wrapper">
+					<label for="coverImg-blur">Cover Image Blur <span id="coverImgBlur-display"></span></label>
+					<input class="input-field" type="range" id="coverImgBlur" />
+				</div>
+
 				<div class="input-wrapper flex-row flex-gap-1">
 					<form class="form-checkbox">
-						<input type="checkbox" id="showClock" />
-						<label for="showClock">Show Clock</label>
+						<input type="checkbox" id="showClock-image" />
+						<label for="showClock-image">Show Clock in Image</label>
+					</form>
+
+					<form class="form-checkbox">
+						<input type="checkbox" id="showClock-date" />
+						<label for="showClock-date">Show Clock in date</label>
 					</form>
 
 					<form class="form-checkbox">

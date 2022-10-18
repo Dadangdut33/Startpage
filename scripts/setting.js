@@ -1,21 +1,29 @@
 const titleConstant = "winTitle",
 	usernameConstant = "user",
-	showClockConstant = "showClock",
-	showSecondsConstant = "showSeconds",
-	amPmConstant = "amPm",
 	selectCoverImgConstant = "selectCoverImage",
-	coverImgConstant = "coverImg";
+	coverImgConstant = "coverImg",
+	coverImgOpacityConstant = "coverImgOpacity",
+	coverImgBlurConstant = "coverImgBlur",
+	showClockInImgConstant = "showClock-image",
+	showClockInDateConstant = "showClock-date",
+	showSecondsConstant = "showSeconds",
+	amPmConstant = "amPm";
 
 const username_Display = document.getElementById("user-display"),
-	coverImg_Display = document.getElementById("coverImg-display");
+	coverImg_Display = document.getElementById("coverImg-display"),
+	coverImgOpacity_Display = document.getElementById("coverImgOpacity-display"),
+	coverImgBlur_Display = document.getElementById("coverImgBlur-display");
 
 const winTitle_Input = document.getElementById(titleConstant),
 	username_Input = document.getElementById(usernameConstant),
-	showClock_Input = document.getElementById(showClockConstant),
-	showSeconds_Input = document.getElementById(showSecondsConstant),
-	amPm_Input = document.getElementById(amPmConstant),
 	selectCoverImg_Input = document.getElementById(selectCoverImgConstant),
-	coverImg_Input = document.getElementById(coverImgConstant);
+	coverImg_Input = document.getElementById(coverImgConstant),
+	coverImgOpacity_Input = document.getElementById(coverImgOpacityConstant),
+	coverImgBlur_Input = document.getElementById(coverImgBlurConstant),
+	showClockInImage_Input = document.getElementById(showClockInImgConstant),
+	showClockInDate_Input = document.getElementById(showClockInDateConstant),
+	showSeconds_Input = document.getElementById(showSecondsConstant),
+	amPm_Input = document.getElementById(amPmConstant);
 
 // ------------------------------
 const coverImageMap = {
@@ -30,11 +38,14 @@ const coverImageMap = {
 function init_Setting() {
 	const winTitle = localStorage.getItem(titleConstant),
 		username = localStorage.getItem(usernameConstant),
-		showClock = localStorage.getItem(showClockConstant),
+		showClockInImage = localStorage.getItem(showClockInImgConstant),
+		showClockInDate = localStorage.getItem(showClockInDateConstant),
 		showSeconds = localStorage.getItem(showSecondsConstant),
 		amPm = localStorage.getItem(amPmConstant),
 		selectCoverImg = localStorage.getItem(selectCoverImgConstant),
-		coverImg = localStorage.getItem(coverImgConstant);
+		coverImg = localStorage.getItem(coverImgConstant),
+		coverImgOpacity = localStorage.getItem(coverImgOpacityConstant),
+		coverImgBlur = localStorage.getItem(coverImgBlurConstant);
 
 	if (winTitle) {
 		winTitle_Input.value = winTitle;
@@ -52,11 +63,18 @@ function init_Setting() {
 		localStorage.setItem(usernameConstant, "User");
 	}
 
-	if (showClock) {
-		showClock_Input.checked = showClock == "true";
+	if (showClockInImage) {
+		showClockInImage_Input.checked = showClockInImage == "true";
 	} else {
-		showClock_Input.checked = true;
-		localStorage.setItem(showClockConstant, true);
+		showClockInImage_Input.checked = true;
+		localStorage.setItem(showClockInImgConstant, true);
+	}
+
+	if (showClockInDate) {
+		showClockInDate_Input.checked = showClockInDate == "true";
+	} else {
+		showClockInDate_Input.checked = true;
+		localStorage.setItem(showClockInDateConstant, true);
 	}
 
 	if (showSeconds) {
@@ -88,6 +106,26 @@ function init_Setting() {
 		coverImg_Display.src = coverImageMap["pic_1"];
 		localStorage.setItem(coverImgConstant, coverImageMap["pic_1"]);
 	}
+
+	if (coverImgOpacity) {
+		coverImgOpacity_Input.value = parseFloat(coverImgOpacity);
+		coverImgOpacity_Display.innerText = `(${coverImgOpacity})`;
+		coverImg_Display.style.opacity = coverImgOpacity;
+	} else {
+		coverImgOpacity_Input.value = 0.6;
+		coverImgOpacity_Display.innerText = "(0.6)";
+		localStorage.setItem(coverImgOpacityConstant, "0.6");
+	}
+
+	if (coverImgBlur) {
+		coverImgBlur_Input.value = parseInt(coverImgBlur);
+		coverImgBlur_Display.innerText = `(${coverImgBlur} px)`;
+		coverImg_Display.style.filter = `blur(${coverImgBlur}px)`;
+	} else {
+		coverImgBlur_Input.value = 2;
+		coverImgBlur_Display.innerText = "(2 px)";
+		localStorage.setItem(coverImgBlurConstant, "2");
+	}
 }
 
 init_Setting();
@@ -102,8 +140,12 @@ username_Input.onkeyup = (e) => {
 	username_Display.innerText = username_Input.value;
 };
 
-showClock_Input.onclick = (e) => {
-	localStorage.setItem(showClockConstant, showClock_Input.checked);
+showClockInImage_Input.onclick = (e) => {
+	localStorage.setItem(showClockInImgConstant, showClockInImage_Input.checked);
+};
+
+showClockInDate_Input.onclick = (e) => {
+	localStorage.setItem(showClockInDateConstant, showClockInDate_Input.checked);
 };
 
 showSeconds_Input.onclick = (e) => {
@@ -120,6 +162,7 @@ selectCoverImg_Input.onchange = (e) => {
 		coverImg_Input.disabled = false;
 	} else {
 		localStorage.setItem(selectCoverImgConstant, selectCoverImg_Input.value);
+		localStorage.setItem(coverImgConstant, coverImageMap[selectCoverImg_Input.value]);
 		coverImg_Input.value = coverImageMap[selectCoverImg_Input.value];
 		coverImg_Display.src = coverImageMap[selectCoverImg_Input.value];
 	}
@@ -128,4 +171,16 @@ selectCoverImg_Input.onchange = (e) => {
 coverImg_Input.onkeyup = (e) => {
 	localStorage.setItem(coverImgConstant, coverImg_Input.value);
 	coverImg_Display.src = coverImg_Input.value;
+};
+
+coverImgOpacity_Input.oninput = (e) => {
+	localStorage.setItem(coverImgOpacityConstant, coverImgOpacity_Input.value.toString());
+	coverImgOpacity_Display.innerText = `(${coverImgOpacity_Input.value})`;
+	coverImg_Display.style.opacity = coverImgOpacity_Input.value;
+};
+
+coverImgBlur_Input.oninput = (e) => {
+	localStorage.setItem(coverImgBlurConstant, coverImgBlur_Input.value.toString());
+	coverImgBlur_Display.innerText = `(${coverImgBlur_Input.value} px)`;
+	coverImg_Display.style.filter = `blur(${coverImgBlur_Input.value}px)`;
 };
