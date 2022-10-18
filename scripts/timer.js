@@ -5,6 +5,11 @@ const months = ["January", "February", "March", "April", "May", "June", "July", 
 const toExactSecond = 1000 - (new Date().getTime() % 1000);
 
 function setTime() {
+	if (localStorage.getItem("showClock") !== "true") {
+		timeDiv.innerHTML = "";
+		return;
+	}
+
 	const showSeconds = localStorage.getItem("showSeconds") == "true";
 	const amPm = localStorage.getItem("amPm") == "true";
 	let today = new Date();

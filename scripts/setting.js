@@ -1,19 +1,21 @@
-const titleConstant = "winTitle";
-const usernameConstant = "user";
-const showSecondsConstant = "showSeconds";
-const amPmConstant = "amPm";
-const selectCoverImgConstant = "selectCoverImage";
-const coverImgConstant = "coverImg";
+const titleConstant = "winTitle",
+	usernameConstant = "user",
+	showClockConstant = "showClock",
+	showSecondsConstant = "showSeconds",
+	amPmConstant = "amPm",
+	selectCoverImgConstant = "selectCoverImage",
+	coverImgConstant = "coverImg";
 
-const username_Display = document.getElementById("user-display");
-const coverImg_Display = document.getElementById("coverImg-display");
+const username_Display = document.getElementById("user-display"),
+	coverImg_Display = document.getElementById("coverImg-display");
 
-const winTitle_Input = document.getElementById(titleConstant);
-const username_Input = document.getElementById(usernameConstant);
-const showSeconds_Input = document.getElementById(showSecondsConstant);
-const amPm_Input = document.getElementById(amPmConstant);
-const selectCoverImg_Input = document.getElementById(selectCoverImgConstant);
-const coverImg_Input = document.getElementById(coverImgConstant);
+const winTitle_Input = document.getElementById(titleConstant),
+	username_Input = document.getElementById(usernameConstant),
+	showClock_Input = document.getElementById(showClockConstant),
+	showSeconds_Input = document.getElementById(showSecondsConstant),
+	amPm_Input = document.getElementById(amPmConstant),
+	selectCoverImg_Input = document.getElementById(selectCoverImgConstant),
+	coverImg_Input = document.getElementById(coverImgConstant);
 
 // ------------------------------
 const coverImageMap = {
@@ -26,12 +28,13 @@ const coverImageMap = {
 };
 
 function init_Setting() {
-	const winTitle = localStorage.getItem(titleConstant);
-	const username = localStorage.getItem(usernameConstant);
-	const showSeconds = localStorage.getItem(showSecondsConstant);
-	const amPm = localStorage.getItem(amPmConstant);
-	const selectCoverImg = localStorage.getItem(selectCoverImgConstant);
-	const coverImg = localStorage.getItem(coverImgConstant);
+	const winTitle = localStorage.getItem(titleConstant),
+		username = localStorage.getItem(usernameConstant),
+		showClock = localStorage.getItem(showClockConstant),
+		showSeconds = localStorage.getItem(showSecondsConstant),
+		amPm = localStorage.getItem(amPmConstant),
+		selectCoverImg = localStorage.getItem(selectCoverImgConstant),
+		coverImg = localStorage.getItem(coverImgConstant);
 
 	if (winTitle) {
 		winTitle_Input.value = winTitle;
@@ -47,6 +50,13 @@ function init_Setting() {
 	} else {
 		username_Input.value = "User";
 		localStorage.setItem(usernameConstant, "User");
+	}
+
+	if (showClock) {
+		showClock_Input.checked = showClock == "true";
+	} else {
+		showClock_Input.checked = true;
+		localStorage.setItem(showClockConstant, true);
 	}
 
 	if (showSeconds) {
@@ -90,6 +100,10 @@ winTitle_Input.onkeyup = (e) => {
 username_Input.onkeyup = (e) => {
 	localStorage.setItem(usernameConstant, username_Input.value);
 	username_Display.innerText = username_Input.value;
+};
+
+showClock_Input.onclick = (e) => {
+	localStorage.setItem(showClockConstant, showClock_Input.checked);
 };
 
 showSeconds_Input.onclick = (e) => {
