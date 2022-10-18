@@ -20,6 +20,9 @@
 	--secondary-color: rgb(189, 147, 249);
 	--secondary-dim-color: hsl(265 89% 70%);
 	--third-color: #44475a;
+	--warning-color: #ffb86c;
+	--danger-color: #ff5555;
+	--danger-dim-color: hsl(0, 100%, 50%);
 	--container-max-height: 400px;
 }
 
@@ -41,28 +44,6 @@ body {
 	border-radius: 0px;
 	border: 0.125rem solid var(--primary-color);
 	box-shadow: 12px 12px 0px var(--search-btn-color);
-}
-
-/* --------------------------------------- */
-/* Colors */
-.color-primary {
-	color: var(--primary-color);
-}
-
-.color-primary-dim {
-	color: var(--primary-dim-color);
-}
-
-.color-secondary {
-	color: var(--secondary-color);
-}
-
-.color-secondary-dim {
-	color: var(--secondary-dim-color);
-}
-
-.color-third {
-	color: var(--third-color);
 }
 
 /* --------------------------------------- */
@@ -268,6 +249,10 @@ body {
 	outline: none;
 }
 
+textarea.input-field {
+	resize: vertical;
+}
+
 .input-field:focus-within {
 	outline: 1px var(--secondary-color) solid;
 }
@@ -287,6 +272,16 @@ body {
 .input-button:hover {
 	cursor: pointer;
 	background-color: rgba(58, 34, 34, 0.1);
+}
+
+.btn-danger {
+	background-color: var(--danger-color);
+	color: var(--search-input-color);
+}
+
+.btn-danger:hover {
+	cursor: pointer;
+	background-color: var(--danger-dim-color);
 }
 
 /* --------------------------------------- */

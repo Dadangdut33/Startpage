@@ -29,8 +29,7 @@ function setTime() {
 	if (localStorage.getItem("showClock-image") === "true") {
 		if (showSeconds)
 			HM = `<span class="color-primary">${H}</span><br/>${M}<br/><span class="color-secondary-dim">${S}</span><span style="font-size: 2rem; position: absolute; bottom: 7px; right: -40px;">${notation}</span>`;
-		else
-			HM = `<span class="color-primary">${H}</span><br/>--<br/>${M}<span class="color-secondary-dim">${S}</span><span style="font-size: 2rem; position: absolute; bottom: 7px; right: -40px;">${notation}</span>`;
+		else HM = `<span class="color-primary">${H}</span><br/>--<br/>${M}<span style="font-size: 2rem; position: absolute; bottom: 7px; right: -40px;">${notation}</span>`;
 
 		timeDiv.innerHTML = HM;
 	}

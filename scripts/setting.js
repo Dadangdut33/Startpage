@@ -8,12 +8,14 @@ const titleConstant = "winTitle",
 	showClockInDateConstant = "showClock-date",
 	showSecondsConstant = "showSeconds",
 	amPmConstant = "amPm",
-	searchEngineConstant = "searchEngine";
+	searchEngineConstant = "searchEngine",
+	bookmarksConstant = "bookmarks-saved";
 
 const username_Display = document.getElementById("user-display"),
 	coverImg_Display = document.getElementById("coverImg-display"),
 	coverImgOpacity_Display = document.getElementById("coverImgOpacity-display"),
-	coverImgBlur_Display = document.getElementById("coverImgBlur-display");
+	coverImgBlur_Display = document.getElementById("coverImgBlur-display"),
+	warningBookmarks_Display = document.getElementById("warning-bookmarks");
 
 const winTitle_Input = document.getElementById(titleConstant),
 	username_Input = document.getElementById(usernameConstant),
@@ -25,7 +27,8 @@ const winTitle_Input = document.getElementById(titleConstant),
 	showClockInDate_Input = document.getElementById(showClockInDateConstant),
 	showSeconds_Input = document.getElementById(showSecondsConstant),
 	amPm_Input = document.getElementById(amPmConstant),
-	searchEngine_Input = document.getElementById(searchEngineConstant);
+	searchEngine_Input = document.getElementById(searchEngineConstant),
+	bookmarks_Input = document.getElementById(bookmarksConstant);
 
 // ------------------------------
 const coverImageMap = {
@@ -37,13 +40,111 @@ const coverImageMap = {
 	pic_6: "images/69414913.gif",
 };
 
+const default_Bookmarks = `[
+  {
+    "title": "Reddit",
+    "links": [
+      {
+        "label": "r/startpages",
+        "value": "https://www.reddit.com/r/startpages/"
+      },
+      {
+        "label": "r/dankmemes",
+        "value": "https://www.reddit.com/r/dankmemes/"
+      },
+      {
+        "label": "r/worldnews",
+        "value": "https://www.reddit.com/r/worldnews/"
+      },
+      {
+        "label": "Reddit Home",
+        "value": "https://www.reddit.com/"
+      },
+      {
+        "label": "Old Reddit",
+        "value": "https://old.reddit.com/"
+      }
+    ]
+  },
+  {
+    "title": "Dev",
+    "links": [
+      {
+        "label": "Github",
+        "value": "https://github.com/"
+      },
+      {
+        "label": "Devdocs",
+        "value": "https://devdocs.io/"
+      },
+      {
+        "label": "MDN",
+        "value": "https://developer.mozilla.org/en-US/docs/"
+      },
+      {
+        "label": "Blender",
+        "value": "https://www.blender.org/"
+      },
+      {
+        "label": "BlenderGuru",
+        "value": "https://www.blenderguru.com/"
+      },
+      {
+        "label": "Poliigon",
+        "value": "https://www.poliigon.com/"
+      }
+    ]
+  },
+  {
+    "title": "Entertainment",
+    "links": [
+      {
+        "label": "Mangadex",
+        "value": "https://mangadex.org/"
+      },
+      {
+        "label": "Crunchyroll",
+        "value": "https://www.crunchyroll.com/"
+      },
+      {
+        "label": "Youtube",
+        "value": "https://youtube.com"
+      }
+    ]
+  },
+  {
+    "title": "Tools",
+    "links": [
+      {
+        "label": "Wolfram Alpha",
+        "value": "https://www.wolframalpha.com/"
+      },
+			{
+        "label": "Coolors",
+        "value": "https://coolors.co/generate"
+      }
+    ]
+  },
+  {
+    "title": "Personal",
+    "links": [
+      {
+        "label": "Gmail",
+        "value": "https://mail.google.com/"
+      }
+    ]
+  }
+]`;
+
 function isJsonString(str) {
 	try {
-		JSON.parse(str);
+		if (typeof str !== "string") return false;
+
+		const json = JSON.parse(str);
+		return typeof json === "object";
 	} catch (e) {
 		return false;
 	}
-	return true;
 }
 
 function init_Setting() {
@@ -57,7 +158,8 @@ function init_Setting() {
 		coverImg = localStorage.getItem(coverImgConstant),
 		coverImgOpacity = localStorage.getItem(coverImgOpacityConstant),
 		coverImgBlur = localStorage.getItem(coverImgBlurConstant),
-		searchEngine = localStorage.getItem(searchEngineConstant);
+		searchEngine = localStorage.getItem(searchEngineConstant),
+		bookmarks = localStorage.getItem(bookmarksConstant);
 
 	if (winTitle) {
 		winTitle_Input.value = winTitle;
@@ -72,6 +174,7 @@ function init_Setting() {
 		username_Display.innerText = username;
 	} else {
 		username_Input.value = "User";
+		username_Display.innerText = "User";
 		localStorage.setItem(usernameConstant, "User");
 	}
 
@@ -145,6 +248,26 @@ function init_Setting() {
 		searchEngine_Input.value = "google";
 		localStorage.setItem(searchEngineConstant, "google");
 	}
+
+	if (bookmarks) {
+		bookmarks_Input.value = bookmarks;
+
+		if (!isJsonString(bookmarks)) warningBookmarks_Display.innerText = "Warning: Invalid JSON format. Your input are not parseable. There are probably some syntax errors.";
+	} else {
+		bookmarks_Input.value = default_Bookmarks;
+		localStorage.setItem(bookmarksConstant, default_Bookmarks);
+	}
+}
+function resetDefault() {
+	// prompt for confirmation
+	if (!confirm("Are you sure you want to reset all settings to default?")) return;
+
+	// once more
+	if (!confirm("Are you really sure? You will lost all your personal bookmarks and settings")) return;
+
+	// reset all settings to default
+	localStorage.clear();
+	init_Setting();
 }
 
 init_Setting();
@@ -206,4 +329,13 @@ coverImgBlur_Input.oninput = (e) => {
 
 searchEngine_Input.onchange = (e) => {
 	localStorage.setItem(searchEngineConstant, searchEngine_Input.value);
+};
+
+bookmarks_Input.onkeyup = (e) => {
+	if (!isJsonString(bookmarks_Input.value))
+		warningBookmarks_Display.innerText = "Warning: Fail to parse bookmarks. There are probably some syntax errors. (Your changes will not be saved until it is fixed)";
+	else {
+		warningBookmarks_Display.innerText = "";
+		localStorage.setItem(bookmarksConstant, bookmarks_Input.value);
+	}
 };

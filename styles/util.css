@@ -1,4 +1,29 @@
 /* --------------------------------------- */
+/* Colors */
+.color-primary {
+	color: var(--primary-color);
+}
+
+.color-primary-dim {
+	color: var(--primary-dim-color);
+}
+
+.color-secondary {
+	color: var(--secondary-color);
+}
+
+.color-secondary-dim {
+	color: var(--secondary-dim-color);
+}
+
+.color-third {
+	color: var(--third-color);
+}
+
+.color-warning {
+	color: var(--warning-color);
+}
+
 /* Util */
 .hidden {
 	display: none;
