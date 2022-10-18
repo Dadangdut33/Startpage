@@ -14,7 +14,7 @@
 	--bg-color: #282a36;
 	--search-input-color: #f8f8f2;
 	--search-btn-color: #6272a4;
-	--normal-text-color: hsl(0, 0%, 86%);
+	--light-color: hsl(0, 0%, 86%);
 	--primary-color: #50fa7b;
 	--primary-dim-color: hsl(135, 94%, 34%);
 	--secondary-color: rgb(189, 147, 249);
@@ -34,7 +34,6 @@ body {
 }
 
 .container {
-	/* max-width: 1200px; */
 	width: 80%;
 	height: var(--container-max-height);
 	display: flex;
@@ -80,7 +79,8 @@ body {
 	object-fit: cover;
 	filter: blur(2px);
 	opacity: 0.6;
-	max-height: var(--container-max-height);
+	width: 17em;
+	height: var(--container-max-height);
 }
 
 .img-holder #time {
@@ -90,7 +90,7 @@ body {
 	top: 50%;
 	right: 50%;
 	transform: translate(50%, -50%);
-	color: var(--normal-text-color);
+	color: var(--light-color);
 	font-size: 4rem;
 }
 
@@ -141,7 +141,7 @@ body {
 /* --------------------------------------- */
 /* main */
 .main {
-	color: var(--normal-text-color);
+	color: var(--light-color);
 	position: relative;
 	width: 100%;
 	padding: 1.5em;

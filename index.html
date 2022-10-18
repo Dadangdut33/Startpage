@@ -18,7 +18,7 @@
 		<!-- Home Page -->
 		<div class="container" id="home">
 			<div class="img-holder">
-				<img id="cover-img" src="images/lein.gif" alt="Cool Img" />
+				<img id="coverImg-display" src="images/lein.gif" alt="Cool Img" />
 				<div class="time-container" id="time">00<br />--<br />00</div>
 			</div>
 			<div class="main">
@@ -70,9 +70,19 @@
 					<input class="input-field" type="text" id="user" />
 				</div>
 
-				<div class="input-wrapper hidden">
-					<label for="custom-image">Custom Image Link</label>
-					<input class="input-field" type="text" id="custom-image" />
+				<div class="input-wrapper">
+					<label for="cars">Cover Image</label>
+
+					<select name="cars" id="selectCoverImage" class="input-field">
+						<option value="pic_1">Pic_1</option>
+						<option value="pic_2">Pic_2</option>
+						<option value="pic_3">Pic_3</option>
+						<option value="pic_4">Pic_4</option>
+						<option value="pic_5">Pic_5</option>
+						<option value="pic_6">Pic_6</option>
+						<option value="custom">Custom</option>
+					</select>
+					<input class="input-field" type="text" id="coverImg" disabled />
 				</div>
 
 				<div class="input-wrapper flex-row flex-gap-1">
