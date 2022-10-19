@@ -4,12 +4,12 @@ A simple startpage for your browser. Some ideas and design are inspired and take
 
 # Installation
 
-You can either set your default home page
+You can either set your default home page...
 
 # Attribution
 
-- Base design and some ideas from [r/startpages](https://reddit.com/r/startpages) mainly [startpage by aman333nolawz](https://github.com/aman333nolawz/startpage-v2)
-- url validator by (validator.js)[https://github.com/validatorjs/validator.js]
+- Base design and some ideas from [r/startpages](https://reddit.com/r/startpages) mainly [startpagev2 by aman333nolawz](https://github.com/aman333nolawz/startpage-v2)
+- url validator by [validator.js](https://github.com/validatorjs/validator.js)
 - [Scanlines animation by LernyWensi](https://github.com/LernyWensi/Endless)
 
 Image sources:

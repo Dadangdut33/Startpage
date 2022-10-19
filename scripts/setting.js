@@ -251,6 +251,7 @@ function init_Setting() {
 		if (!enableAnimation_Input.checked) disableAnimation();
 	} else {
 		enableAnimation_Input.checked = false;
+		disableAnimation();
 		localStorage.setItem(enableAnimationConstant, false);
 	}
 
