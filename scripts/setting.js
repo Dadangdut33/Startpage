@@ -34,10 +34,13 @@ const winTitle_Input = document.getElementById(titleConstant),
 const coverImageMap = {
 	pic_1: "images/clouds.gif",
 	pic_2: "images/lein.gif",
-	pic_3: "images/violet.gif",
+	pic_3: "images/corporations.gif",
 	pic_4: "images/white.gif",
 	pic_5: "images/blue.gif",
 	pic_6: "images/69414913.gif",
+	pic_7: "images/neon.gif",
+	pic_8: "images/ramen.gif",
+	pic_9: "images/sentinel.gif",
 };
 
 const default_Bookmarks = `[
@@ -183,15 +186,15 @@ function init_Setting() {
 	if (showSeconds) {
 		showSeconds_Input.checked = showSeconds == "true";
 	} else {
-		showSeconds_Input.checked = false;
-		localStorage.setItem(showSecondsConstant, false);
+		showSeconds_Input.checked = true;
+		localStorage.setItem(showSecondsConstant, true);
 	}
 
 	if (amPm) {
 		amPm_Input.checked = amPm == "true";
 	} else {
-		amPm_Input.checked = false;
-		localStorage.setItem(amPmConstant, false);
+		amPm_Input.checked = true;
+		localStorage.setItem(amPmConstant, true);
 	}
 
 	if (selectCoverImg) {
