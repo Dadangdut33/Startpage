@@ -27,16 +27,15 @@ function setTime() {
 	}
 
 	if (localStorage.getItem("showClock-image") === "true") {
-		if (showSeconds)
-			HM = `<span class="color-primary">${H}</span><br/>${M}<br/><span class="color-secondary-dim">${S}</span><span style="font-size: 2rem; position: absolute; bottom: 7px; right: -40px;">${notation}</span>`;
-		else HM = `<span class="color-primary">${H}</span><br/>--<br/>${M}<span style="font-size: 2rem; position: absolute; bottom: 7px; right: -40px;">${notation}</span>`;
+		if (showSeconds) HM = `<span class="color-primary">${H}</span><br/>${M}<br/><span class="color-secondary-dim">${S}</span><span class="ampm">${notation}</span>`;
+		else HM = `<span class="color-primary">${H}</span><br/>--<br/>${M}<span class="ampm">${notation}</span>`;
 
 		timeDiv.innerHTML = HM;
 	}
 
 	if (localStorage.getItem("showClock-date") === "true") {
 		if (showSeconds) todayHeader.innerText += ` ${H}:${M}:${S} ${notation}`;
-		else todayHeader.innerText += `${H}:${M} ${notation}`;
+		else todayHeader.innerText += ` ${H}:${M} ${notation}`;
 	}
 }
 

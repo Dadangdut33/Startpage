@@ -80,6 +80,13 @@ body {
 	position: relative;
 }
 
+.ampm {
+	font-size: 2rem;
+	position: absolute;
+	bottom: 9px;
+	right: -40px;
+}
+
 /* --------------------------------------- */
 /* searchbox */
 .searchbox {
