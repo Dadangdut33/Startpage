@@ -49,10 +49,6 @@ const default_Bookmarks = `[
         "value": "https://www.reddit.com/r/startpages/"
       },
       {
-        "label": "r/dankmemes",
-        "value": "https://www.reddit.com/r/dankmemes/"
-      },
-      {
         "label": "r/worldnews",
         "value": "https://www.reddit.com/r/worldnews/"
       },
@@ -80,14 +76,6 @@ const default_Bookmarks = `[
       {
         "label": "MDN",
         "value": "https://developer.mozilla.org/en-US/docs/"
-      },
-      {
-        "label": "Blender",
-        "value": "https://www.blender.org/"
-      },
-      {
-        "label": "BlenderGuru",
-        "value": "https://www.blenderguru.com/"
       },
       {
         "label": "Poliigon",
@@ -258,6 +246,7 @@ function init_Setting() {
 		localStorage.setItem(bookmarksConstant, default_Bookmarks);
 	}
 }
+
 function resetDefault() {
 	// prompt for confirmation
 	if (!confirm("Are you sure you want to reset all settings to default?")) return;
@@ -268,9 +257,8 @@ function resetDefault() {
 	// reset all settings to default
 	localStorage.clear();
 	init_Setting();
+	loadBookmark();
 }
-
-init_Setting();
 
 winTitle_Input.onkeyup = (e) => {
 	localStorage.setItem(titleConstant, winTitle_Input.value);
@@ -337,5 +325,10 @@ bookmarks_Input.onkeyup = (e) => {
 	else {
 		warningBookmarks_Display.innerText = "";
 		localStorage.setItem(bookmarksConstant, bookmarks_Input.value);
+		loadBookmark();
 	}
 };
+
+// ------------------------------
+// init setting
+init_Setting();

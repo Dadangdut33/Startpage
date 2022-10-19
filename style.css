@@ -15,6 +15,7 @@
 	--search-input-color: #f8f8f2;
 	--search-btn-color: #6272a4;
 	--light-color: hsl(0, 0%, 86%);
+	--light-dim-color: hsl(0, 0%, 70%);
 	--primary-color: #50fa7b;
 	--primary-dim-color: hsl(135, 94%, 34%);
 	--secondary-color: rgb(189, 147, 249);
@@ -142,23 +143,6 @@ body {
 	margin-bottom: 1em;
 }
 
-.main::-webkit-scrollbar {
-	width: 0.4em;
-	height: 0.4em;
-}
-
-.main::-webkit-scrollbar-track {
-	background-color: var(--third-color);
-}
-
-.main::-webkit-scrollbar-thumb {
-	background-color: var(--secondary-color);
-}
-
-.main::-webkit-scrollbar-thumb:hover {
-	background-color: var(--secondary-dim-color);
-}
-
 /* --------------------------------------- */
 /* info icons */
 .nav-icons {
@@ -169,7 +153,7 @@ body {
 	gap: 0.5em;
 	cursor: pointer;
 	transition: all 0.25s ease-out;
-	opacity: 0.7;
+	opacity: 0.35;
 }
 
 .nav-icons:hover {
@@ -184,14 +168,20 @@ body {
 /* bookmarks */
 .bookmarks {
 	display: flex;
+	flex-flow: row wrap;
 	justify-content: flex-start;
 	gap: 3rem;
+}
+
+.bookmarks h3 {
+	color: var(--light-dim-color);
 }
 
 .bookmarks a {
 	text-decoration: none;
 	color: var(--secondary-color);
 	padding: 0.5em;
+	padding-left: 0;
 	position: relative;
 	outline: none;
 }
@@ -212,7 +202,7 @@ body {
 .bookmarks a:focus-visible::before {
 	content: "\0ea9c";
 	position: absolute;
-	left: -0.75rem;
+	left: -1rem;
 	opacity: 1;
 }
 
@@ -285,3 +275,19 @@ textarea.input-field {
 }
 
 /* --------------------------------------- */
+::-webkit-scrollbar {
+	width: 0.4em;
+	height: 0.4em;
+}
+
+::-webkit-scrollbar-track {
+	background-color: var(--third-color);
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: var(--secondary-color);
+}
+
+::-webkit-scrollbar-thumb:hover {
+	background-color: var(--secondary-dim-color);
+}

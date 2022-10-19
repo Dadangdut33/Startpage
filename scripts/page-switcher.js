@@ -28,4 +28,6 @@ function initPageSwitcher() {
 	if (lastPage) switchTo(lastPage);
 }
 
+// ------------------------------
+// init page switcher on load
 initPageSwitcher();

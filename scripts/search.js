@@ -10,8 +10,6 @@ const searchEngMap = {
 	yandex: "https://yandex.com/search/?text=",
 };
 
-search.focus();
-
 function isWebUrl(value) {
 	try {
 		new URL(value);
@@ -49,3 +47,7 @@ searchButton.onauxclick = (e) => {
 		parseSearch(search.value, true);
 	}
 };
+
+// ------------------------------
+// focus on search bar when page loads
+search.focus();

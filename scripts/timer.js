@@ -40,6 +40,8 @@ function setTime() {
 	}
 }
 
+// ------------------------------
+// set time on load
 setTime();
 setTimeout(() => {
 	setInterval(setTime, 1000);
