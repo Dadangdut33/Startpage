@@ -18,6 +18,7 @@
 	<body>
 		<!-- Home Page -->
 		<div class="container" id="home">
+			<div id="scanlines"></div>
 			<div class="img-holder">
 				<img id="coverImg-display" src="images/lein.gif" alt="Cool Img" />
 				<div class="time-container" id="time"></div>
@@ -40,6 +41,7 @@
 
 		<!-- Setting Page -->
 		<div class="container hidden" id="setting">
+			<div id="scanlines"></div>
 			<div class="main d-flex flex-column flex-gap-1">
 				<div class="nav-icons">
 					<span onclick="switchTo('home')">🏠</span>
@@ -87,6 +89,13 @@
 				</div>
 
 				<div class="input-wrapper">
+					<form class="form-checkbox">
+						<input type="checkbox" id="animation-enabled" />
+						<label for="animation-enabled">Enable animation</label>
+					</form>
+				</div>
+
+				<div class="input-wrapper">
 					<p>Clock Settings</p>
 					<div class="input-wrapper flex-row flex-gap-1">
 						<form class="form-checkbox">
@@ -112,10 +121,10 @@
 				</div>
 
 				<div class="input-wrapper">
-					<label for="search-engine-opt"
-						>Search Engine
-						<small class="color-primary-dim">(You can use these options as prefix in the searchbox to search using that option. Ex: <code>`youtube: cats`</code> )</small></label
-					>
+					<label for="search-engine-opt">
+						Search Engine
+						<small class="color-primary-dim">(You can use these options as prefix in the searchbox to search using that option. Ex: <code>`youtube: cats`</code> )</small>
+					</label>
 
 					<select name="search-engine-opt" id="searchEngine" class="input-field">
 						<option value="google">Google</option>
@@ -163,6 +172,7 @@
 
 		<!-- About Page -->
 		<div class="container hidden" id="about">
+			<div id="scanlines"></div>
 			<div class="main d-flex flex-column flex-gap-1">
 				<div class="nav-icons">
 					<span onclick="switchTo('home')">🏠</span>
@@ -173,7 +183,7 @@
 				<p>
 					A <a class="link" href="https://github.com/Dadangdut33/Startpage">startpage</a> made with vanilla html, js, and css. Some ideas and design are inspired and taken from
 					<a class="link" href="https://reddit.com/r/startpages">r/startpages.</a> Take a look at the
-					<a class="link" href="https://github.com/Dadangdut33/Startpage/blob/master/readme.md">readme</a> for help.
+					<a class="link" href="https://github.com/Dadangdut33/Startpage/blob/master/readme.md">readme</a> for help & attributions.
 				</p>
 
 				<hr />

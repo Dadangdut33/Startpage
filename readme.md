@@ -1,10 +1,16 @@
 # About
 
-A simple startpage for your browser. Some ideas and design are inspired and taken from [r/startpages](https://reddit.com/r/startpages) mainly [this one](https://github.com/aman333nolawz/startpage-v2)
+A simple startpage for your browser. Some ideas and design are inspired and taken from [r/startpages](https://reddit.com/r/startpages).
 
-## Attribution
+# Installation
 
-url validator by (validator.js)[https://github.com/validatorjs/validator.js]
+You can either set your default home page
+
+# Attribution
+
+- Base design and some ideas from [r/startpages](https://reddit.com/r/startpages) mainly [startpage by aman333nolawz](https://github.com/aman333nolawz/startpage-v2)
+- url validator by (validator.js)[https://github.com/validatorjs/validator.js]
+- [Scanlines animation by LernyWensi](https://github.com/LernyWensi/Endless)
 
 Image sources:
 
@@ -17,7 +23,3 @@ Image sources:
 - [neon](https://www.artstation.com/artwork/Xnwnn3)
 - [samurai](https://www.artstation.com/artwork/Xnwnn3)
 - [white](https://www.pixiv.net/en/artworks/69754916)
-
-## Installation
-
-You can either set your default home page

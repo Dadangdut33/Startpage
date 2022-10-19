@@ -4,6 +4,7 @@ const titleConstant = "winTitle",
 	coverImgConstant = "coverImg",
 	coverImgOpacityConstant = "coverImgOpacity",
 	coverImgBlurConstant = "coverImgBlur",
+	enableAnimationConstant = "animation-enabled",
 	showClockInImgConstant = "showClock-image",
 	showClockInDateConstant = "showClock-date",
 	showSecondsConstant = "showSeconds",
@@ -17,7 +18,8 @@ const username_Display = document.getElementById("user-display"),
 	coverImg_Display = document.getElementById("coverImg-display"),
 	coverImgOpacity_Display = document.getElementById("coverImgOpacity-display"),
 	coverImgBlur_Display = document.getElementById("coverImgBlur-display"),
-	warningBookmarks_Display = document.getElementById("warning-bookmarks");
+	warningBookmarks_Display = document.getElementById("warning-bookmarks"),
+	animations_Display = document.querySelectorAll("#scanlines");
 
 const winTitle_Input = document.getElementById(titleConstant),
 	username_Input = document.getElementById(usernameConstant),
@@ -25,6 +27,7 @@ const winTitle_Input = document.getElementById(titleConstant),
 	coverImg_Input = document.getElementById(coverImgConstant),
 	coverImgOpacity_Input = document.getElementById(coverImgOpacityConstant),
 	coverImgBlur_Input = document.getElementById(coverImgBlurConstant),
+	enableAnimation_Input = document.getElementById(enableAnimationConstant),
 	showClockInImage_Input = document.getElementById(showClockInImgConstant),
 	showClockInDate_Input = document.getElementById(showClockInDateConstant),
 	showSeconds_Input = document.getElementById(showSecondsConstant),
@@ -185,6 +188,18 @@ function resetDefaultBookmarks() {
 	loadBookmark();
 }
 
+function disableAnimation() {
+	animations_Display.forEach((animation) => {
+		animation.classList.add("hidden");
+	});
+}
+
+function enableAnimation() {
+	animations_Display.forEach((animation) => {
+		animation.classList.remove("hidden");
+	});
+}
+
 function resetDefaultStyles() {
 	// prompt user to confirm
 	if (!confirm("Are you sure you want to reset the style to default?")) return;
@@ -200,6 +215,7 @@ function resetDefaultStyles() {
 function init_Setting() {
 	const winTitle = localStorage.getItem(titleConstant),
 		username = localStorage.getItem(usernameConstant),
+		enableAnimation = localStorage.getItem(enableAnimationConstant),
 		showClockInImage = localStorage.getItem(showClockInImgConstant),
 		showClockInDate = localStorage.getItem(showClockInDateConstant),
 		showSeconds = localStorage.getItem(showSecondsConstant),
@@ -228,6 +244,14 @@ function init_Setting() {
 		username_Input.value = "User";
 		username_Display.innerText = "User";
 		localStorage.setItem(usernameConstant, "User");
+	}
+
+	if (enableAnimation) {
+		enableAnimation_Input.checked = enableAnimation === "true";
+		if (!enableAnimation_Input.checked) disableAnimation();
+	} else {
+		enableAnimation_Input.checked = false;
+		localStorage.setItem(enableAnimationConstant, false);
 	}
 
 	if (showClockInImage) {
@@ -342,6 +366,12 @@ winTitle_Input.onkeyup = (e) => {
 username_Input.onkeyup = (e) => {
 	localStorage.setItem(usernameConstant, username_Input.value);
 	username_Display.innerText = username_Input.value;
+};
+
+enableAnimation_Input.onclick = (e) => {
+	localStorage.setItem(enableAnimationConstant, enableAnimation_Input.checked);
+	if (!enableAnimation_Input.checked) disableAnimation();
+	else enableAnimation();
 };
 
 showClockInImage_Input.onclick = (e) => {

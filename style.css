@@ -13,6 +13,8 @@
 :root {
 	--bg-image: url("");
 	--bg-color: #282a36;
+	--card-animation-color: #44475a;
+	--card-animation-color2: #72758b;
 	--card-bg-color: #44475a4d;
 	--card-shadow-color: #6272a4;
 	--light-color: #dbdbdb;
@@ -47,10 +49,36 @@ body {
 	width: 80%;
 	height: var(--container-max-height);
 	display: flex;
+	position: relative;
 
 	border-radius: 0px;
 	border: 0.125rem solid var(--primary-color);
 	box-shadow: 12px 12px 0px var(--card-shadow-color);
+}
+
+/* taken from https://github.com/LernyWensi/Endless */
+#scanlines {
+	background-image: url("styles/scanlines.png");
+	background-repeat: repeat;
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	z-index: 9999;
+	animation: scanAnim 0.6s infinite;
+	animation-timing-function: linear;
+	pointer-events: none;
+	background-color: transparent;
+}
+
+@keyframes scanAnim {
+	0% {
+		background-position: 0px 0px;
+	}
+	100% {
+		background-position: 0px 8px;
+	}
 }
 
 /* --------------------------------------- */
