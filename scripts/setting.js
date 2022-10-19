@@ -9,7 +9,9 @@ const titleConstant = "winTitle",
 	showSecondsConstant = "showSeconds",
 	amPmConstant = "amPm",
 	searchEngineConstant = "searchEngine",
-	bookmarksConstant = "bookmarks-saved";
+	bookmarksConstant = "bookmarks-saved",
+	userStyleConstant = "customize-style",
+	userStyleId = "user-style-css";
 
 const username_Display = document.getElementById("user-display"),
 	coverImg_Display = document.getElementById("coverImg-display"),
@@ -28,7 +30,8 @@ const winTitle_Input = document.getElementById(titleConstant),
 	showSeconds_Input = document.getElementById(showSecondsConstant),
 	amPm_Input = document.getElementById(amPmConstant),
 	searchEngine_Input = document.getElementById(searchEngineConstant),
-	bookmarks_Input = document.getElementById(bookmarksConstant);
+	bookmarks_Input = document.getElementById(bookmarksConstant),
+	userStyle_Input = document.getElementById(userStyleConstant);
 
 // ------------------------------
 const coverImageMap = {
@@ -127,6 +130,26 @@ const default_Bookmarks = `[
   }
 ]`;
 
+const default_UserStyle = `:root {
+  --bg-image: url("");
+  --bg-color: #282a36;
+  --card-bg-color: #44475a4d;
+  --card-shadow-color: #6272a4;
+  --light-color: #dbdbdb;
+  --light-dim-color: #b3b3b3;
+  --primary-color: #50fa7b;
+  --primary-dim-color: #05a82e;
+  --secondary-color: #bd93f9;
+  --secondary-dim-color: #a76ef7;
+  --search-input-color: #f8f8f2;
+  --search-btn-color: #6272a4;
+  --search-btn-hover-color: #ffffff1a;
+  --gray: #44475a;
+  --warning-color: #ffb86c;
+  --danger-color: #ff5555;
+  --danger-dim-color: #ff0000;
+}`;
+
 function isJsonString(str) {
 	try {
 		if (typeof str !== "string") return false;
@@ -136,6 +159,42 @@ function isJsonString(str) {
 	} catch (e) {
 		return false;
 	}
+}
+
+function appendStyle(styleString) {
+	const style = document.getElementById(userStyleId);
+	if (style) style.innerText = styleString;
+	else {
+		const style = document.createElement("style");
+		style.id = userStyleId;
+		style.innerText = styleString;
+		document.head.appendChild(style);
+	}
+}
+
+function resetDefaultBookmarks() {
+	// prompt user to confirm
+	if (!confirm("Are you sure you want to reset bookmarks to default?")) return;
+
+	// once more
+	if (!confirm("Are you sure really really sure you want to reset bookmarks to default?")) return;
+
+	bookmarks_Input.value = default_Bookmarks;
+	warningBookmarks_Display.innerText = "";
+	localStorage.setItem(bookmarksConstant, default_Bookmarks);
+	loadBookmark();
+}
+
+function resetDefaultStyles() {
+	// prompt user to confirm
+	if (!confirm("Are you sure you want to reset the style to default?")) return;
+
+	// once more
+	if (!confirm("Are you sure really really sure you want to reset the style to default?")) return;
+
+	appendStyle(default_UserStyle);
+	userStyle_Input.value = default_UserStyle;
+	localStorage.setItem(userStyleConstant, default_UserStyle);
 }
 
 function init_Setting() {
@@ -150,7 +209,8 @@ function init_Setting() {
 		coverImgOpacity = localStorage.getItem(coverImgOpacityConstant),
 		coverImgBlur = localStorage.getItem(coverImgBlurConstant),
 		searchEngine = localStorage.getItem(searchEngineConstant),
-		bookmarks = localStorage.getItem(bookmarksConstant);
+		bookmarks = localStorage.getItem(bookmarksConstant),
+		userStyle = localStorage.getItem(userStyleConstant);
 
 	if (winTitle) {
 		winTitle_Input.value = winTitle;
@@ -247,7 +307,17 @@ function init_Setting() {
 		if (!isJsonString(bookmarks)) warningBookmarks_Display.innerText = "Warning: Invalid JSON format. Your input are not parseable. There are probably some syntax errors.";
 	} else {
 		bookmarks_Input.value = default_Bookmarks;
+		warningBookmarks_Display.innerText = "";
 		localStorage.setItem(bookmarksConstant, default_Bookmarks);
+	}
+
+	if (userStyle) {
+		userStyle_Input.value = userStyle;
+		appendStyle(userStyle);
+	} else {
+		userStyle_Input.value = default_UserStyle;
+		appendStyle(default_UserStyle);
+		localStorage.setItem(userStyleConstant, default_UserStyle);
 	}
 }
 
@@ -332,6 +402,11 @@ bookmarks_Input.onkeyup = (e) => {
 		localStorage.setItem(bookmarksConstant, bookmarks_Input.value);
 		loadBookmark();
 	}
+};
+
+userStyle_Input.onkeyup = (e) => {
+	appendStyle(userStyle_Input.value); // update style
+	localStorage.setItem(userStyleConstant, userStyle_Input.value);
 };
 
 // ------------------------------

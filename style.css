@@ -11,30 +11,36 @@
 }
 
 :root {
+	--bg-image: url("");
 	--bg-color: #282a36;
+	--card-bg-color: #44475a4d;
+	--card-shadow-color: #6272a4;
+	--light-color: #dbdbdb;
+	--light-dim-color: #b3b3b3;
+	--primary-color: #50fa7b;
+	--primary-dim-color: #05a82e;
+	--secondary-color: #bd93f9;
+	--secondary-dim-color: #a76ef7;
 	--search-input-color: #f8f8f2;
 	--search-btn-color: #6272a4;
-	--light-color: hsl(0, 0%, 86%);
-	--light-dim-color: hsl(0, 0%, 70%);
-	--primary-color: #50fa7b;
-	--primary-dim-color: hsl(135, 94%, 34%);
-	--secondary-color: rgb(189, 147, 249);
-	--secondary-dim-color: hsl(265 89% 70%);
-	--third-color: #44475a;
+	--search-btn-hover-color: #ffffff1a;
+	--gray: #44475a;
 	--warning-color: #ffb86c;
 	--danger-color: #ff5555;
-	--danger-dim-color: hsl(0, 100%, 50%);
+	--danger-dim-color: #ff0000;
 	--container-max-height: 400px;
 }
 
 body {
-	width: 100vw;
-	height: 100vh;
-	background-color: var(--bg-color);
 	font-family: "Fira Code", monospace;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	width: 100vw;
+	height: 100vh;
+	background-color: var(--bg-color);
+	background-image: var(--bg-image);
+	background-size: cover;
 }
 
 .container {
@@ -44,7 +50,7 @@ body {
 
 	border-radius: 0px;
 	border: 0.125rem solid var(--primary-color);
-	box-shadow: 12px 12px 0px var(--search-btn-color);
+	box-shadow: 12px 12px 0px var(--card-shadow-color);
 }
 
 /* --------------------------------------- */
@@ -124,7 +130,7 @@ body {
 .searchbox button:focus-visible,
 .searchbox button:hover {
 	cursor: pointer;
-	background-color: rgba(255, 255, 255, 0.1);
+	background-color: var(--search-btn-hover-color);
 }
 
 /* --------------------------------------- */
@@ -134,9 +140,9 @@ body {
 	position: relative;
 	width: 100%;
 	padding: 1.5em;
-	background-color: hsla(232, 14%, 31%, 0.3);
+	background-color: var(--card-bg-color);
 	overflow: auto;
-	scrollbar-color: var(--secondary-color) var(--third-color);
+	scrollbar-color: var(--secondary-color) var(--gray);
 	scrollbar-width: thin;
 }
 
@@ -146,7 +152,6 @@ body {
 
 .main h2 {
 	color: var(--primary-dim-color);
-
 	margin-bottom: 1em;
 }
 
@@ -281,6 +286,11 @@ textarea.input-field {
 	background-color: var(--danger-dim-color);
 }
 
+.btn-small {
+	font-size: 0.8rem;
+	padding: 0.5em;
+}
+
 /* --------------------------------------- */
 ::-webkit-scrollbar {
 	width: 0.4em;
@@ -288,7 +298,7 @@ textarea.input-field {
 }
 
 ::-webkit-scrollbar-track {
-	background-color: var(--third-color);
+	background-color: var(--gray);
 }
 
 ::-webkit-scrollbar-thumb {
