@@ -31,6 +31,8 @@ function setTime() {
 		else HM = `<span class="color-primary">${H}</span><br/>--<br/>${M}<span class="ampm">${notation}</span>`;
 
 		timeDiv.innerHTML = HM;
+	} else {
+		timeDiv.innerHTML = "";
 	}
 
 	if (localStorage.getItem("showClock-date") === "true") {

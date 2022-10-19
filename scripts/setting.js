@@ -157,6 +157,7 @@ function init_Setting() {
 		document.title = winTitle;
 	} else {
 		winTitle_Input.value = "New Tab";
+		document.title = "New Tab";
 		localStorage.setItem(titleConstant, "New Tab");
 	}
 

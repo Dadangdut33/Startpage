@@ -1,17 +1,18 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>~/startpage</title>
+		<title>New Tab</title>
 		<link rel="icon" href="favicon.ico" sizes="24x24" />
 		<link rel="stylesheet" href="style.css" type="text/css" media="screen" />
 		<link rel="stylesheet" href="styles/util.css" type="text/css" media="screen" />
 		<link rel="stylesheet" href="styles/animation.css" type="text/css" />
 		<link rel="preload" as="font" href="fonts/Fira Code Regular Nerd Font Complete.woff2" type="font/woff2" crossorigin="anonymous" />
 		<script defer src="scripts/timer.js"></script>
-		<script defer src="scripts/search.js"></script>
 		<script defer src="scripts/setting.js"></script>
 		<script defer src="scripts/page-switcher.js"></script>
 		<script defer src="scripts/load-bookmark.js"></script>
+		<script defer type="module" src="scripts/search.js"></script>
+		<script defer type="module" src="scripts/validator.js"></script>
 	</head>
 
 	<body>
@@ -111,7 +112,7 @@
 				</div>
 
 				<div class="input-wrapper">
-					<label for="search-engine-opt">Search Engine</label>
+					<label for="search-engine-opt">Search Engine <small class="color-primary-dim">(You can use these options as prefix in the searchbox to search using that option. Ex: <code>`youtube: cats`</code> )</small></label>
 
 					<select name="search-engine-opt" id="searchEngine" class="input-field">
 						<option value="google">Google</option>
@@ -121,6 +122,10 @@
 						<option value="ecosia">Ecosia</option>
 						<option value="bing">Bing</option>
 						<option value="yandex">Yandex</option>
+						<option value="youtube">Youtube</option>
+						<option value="twitter">Twitter</option>
+						<option value="github">Github</option>
+						<option value="reddit">Reddit</option>
 					</select>
 				</div>
 
@@ -149,28 +154,25 @@
 				<h1 class="mx-auto">About</h1>
 				<p>
 					A <a class="link" href="https://github.com/Dadangdut33/Startpage">startpage</a> made with vanilla html, js, and css. Some ideas and design are inspired and taken from
-					<a class="link" href="https://reddit.com/r/startpages">r/startpages.</a>
-				</p>
-
-				<b>Image Sources:</b>
-				<p>
-					<a class="link" href="https://www.pixiv.net/en/artworks/69414913">[69414913]</a>
-					<a class="link" href="https://twitter.com/i/web/status/974315063044603904">[blue]</a>
-					<a class="link" href="https://twitter.com/i/web/status/1161923643238039552">[lein]</a>
-					<a class="link" href="https://www.artstation.com/artwork/Xnwnn3">[corporations]</a>
-					<a class="link" href="https://www.artstation.com/artwork/Xnwnn3">[ramen]</a>
-					<a class="link" href="https://www.artstation.com/artwork/Xnwnn3">[sentinel]</a>
-					<a class="link" href="https://www.artstation.com/artwork/Xnwnn3">[neon]</a>
-					<a class="link" href="https://www.artstation.com/artwork/Xnwnn3">[samurai]</a>
-					<a class="link" href="https://www.pixiv.net/en/artworks/69754916">[white]</a>
+					<a class="link" href="https://reddit.com/r/startpages">r/startpages.</a> Take a look at the <a class="link" href="https://github.com/Dadangdut33/Startpage/blob/master/readme.md">readme</a> for help.</a
+					>
 				</p>
 
 				<hr />
 
-				<h2 class="mb-0">Changelog</h2>
+				<h2 class="mb-0">Image Sources</h2>
 				<div>
-					<p>V1.0.0</p>
-					<p>Initial Release</p>
+					<p>
+						<a class="link" href="https://www.pixiv.net/en/artworks/69414913">[69414913]</a>
+						<a class="link" href="https://twitter.com/i/web/status/974315063044603904">[blue]</a>
+						<a class="link" href="https://twitter.com/i/web/status/1161923643238039552">[lein]</a>
+						<a class="link" href="https://www.artstation.com/artwork/Xnwnn3">[corporations]</a>
+						<a class="link" href="https://www.artstation.com/artwork/Xnwnn3">[ramen]</a>
+						<a class="link" href="https://www.artstation.com/artwork/Xnwnn3">[sentinel]</a>
+						<a class="link" href="https://www.artstation.com/artwork/Xnwnn3">[neon]</a>
+						<a class="link" href="https://www.artstation.com/artwork/Xnwnn3">[samurai]</a>
+						<a class="link" href="https://www.pixiv.net/en/artworks/69754916">[white]</a>
+					</p>
 				</div>
 			</div>
 		</div>
