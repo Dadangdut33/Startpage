@@ -200,17 +200,17 @@ function init_Setting() {
 	if (selectCoverImg) {
 		selectCoverImg_Input.value = selectCoverImg;
 	} else {
-		selectCoverImg_Input.value = "pic_1";
-		localStorage.setItem(selectCoverImgConstant, "pic_1");
+		selectCoverImg_Input.value = "pic_7";
+		localStorage.setItem(selectCoverImgConstant, "pic_7");
 	}
 
 	if (coverImg) {
 		coverImg_Input.value = coverImg;
 		coverImg_Display.src = coverImg;
 	} else {
-		coverImg_Input.value = coverImageMap["pic_1"];
-		coverImg_Display.src = coverImageMap["pic_1"];
-		localStorage.setItem(coverImgConstant, coverImageMap["pic_1"]);
+		coverImg_Input.value = coverImageMap["pic_7"];
+		coverImg_Display.src = coverImageMap["pic_7"];
+		localStorage.setItem(coverImgConstant, coverImageMap["pic_7"]);
 	}
 
 	if (coverImgOpacity) {
@@ -298,6 +298,7 @@ selectCoverImg_Input.onchange = (e) => {
 		localStorage.setItem(coverImgConstant, coverImageMap[selectCoverImg_Input.value]);
 		coverImg_Input.value = coverImageMap[selectCoverImg_Input.value];
 		coverImg_Display.src = coverImageMap[selectCoverImg_Input.value];
+		coverImg_Input.disabled = true;
 	}
 };
 
