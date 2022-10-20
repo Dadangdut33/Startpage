@@ -1,6 +1,6 @@
 <p align="center">
-    <img src="https://github.com/Dadangdut33/simple-wallpaper-changer/blob/master/src/preview1.png?raw=true" alt="Preview">
-    <img src="https://github.com/Dadangdut33/simple-wallpaper-changer/blob/master/src/preview2.png?raw=true" alt="Preview">
+    <img src="https://github.com/Dadangdut33/Startpage/blob/master/preview1.png?raw=true" alt="Preview">
+    <img src="https://github.com/Dadangdut33/Startpage/blob/master/preview2.png?raw=true" alt="Preview">
 </p>
 
 <h1 align="center">About</h1>
