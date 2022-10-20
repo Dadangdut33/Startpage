@@ -1,6 +1,7 @@
 const titleConstant = "winTitle",
 	usernameConstant = "user",
 	selectCoverImgConstant = "selectCoverImage",
+	favIconConstant = "favicon",
 	coverImgConstant = "coverImg",
 	coverImgOpacityConstant = "coverImgOpacity",
 	coverImgBlurConstant = "coverImgBlur",
@@ -19,11 +20,13 @@ const username_Display = document.getElementById("user-display"),
 	coverImgOpacity_Display = document.getElementById("coverImgOpacity-display"),
 	coverImgBlur_Display = document.getElementById("coverImgBlur-display"),
 	warningBookmarks_Display = document.getElementById("warning-bookmarks"),
-	animations_Display = document.querySelectorAll("#scanlines");
+	animations_Display = document.querySelectorAll("#scanlines"),
+	favIcon_Display = document.getElementById("favicon-display");
 
 const winTitle_Input = document.getElementById(titleConstant),
 	username_Input = document.getElementById(usernameConstant),
 	selectCoverImg_Input = document.getElementById(selectCoverImgConstant),
+	favIcon_Input = document.getElementById(favIconConstant),
 	coverImg_Input = document.getElementById(coverImgConstant),
 	coverImgOpacity_Input = document.getElementById(coverImgOpacityConstant),
 	coverImgBlur_Input = document.getElementById(coverImgBlurConstant),
@@ -175,6 +178,16 @@ function appendStyle(styleString) {
 	}
 }
 
+function changeFavIcon(favUrl) {
+	const link = document.createElement("link");
+	const oldLinks = document.querySelectorAll('link[rel="shortcut icon"]');
+	oldLinks.forEach((e) => e.parentNode.removeChild(e));
+	link.id = "dynamic-favicon";
+	link.rel = "shortcut icon";
+	link.href = favUrl;
+	document.head.appendChild(link);
+}
+
 function resetDefaultBookmarks() {
 	// prompt user to confirm
 	if (!confirm("Are you sure you want to reset bookmarks to default?")) return;
@@ -221,6 +234,7 @@ function init_Setting() {
 		showSeconds = localStorage.getItem(showSecondsConstant),
 		amPm = localStorage.getItem(amPmConstant),
 		selectCoverImg = localStorage.getItem(selectCoverImgConstant),
+		favIcon = localStorage.getItem(favIconConstant),
 		coverImg = localStorage.getItem(coverImgConstant),
 		coverImgOpacity = localStorage.getItem(coverImgOpacityConstant),
 		coverImgBlur = localStorage.getItem(coverImgBlurConstant),
@@ -281,6 +295,14 @@ function init_Setting() {
 	} else {
 		amPm_Input.checked = true;
 		localStorage.setItem(amPmConstant, true);
+	}
+
+	if (favIcon) {
+		favIcon_Input.value = favIcon;
+		changeFavIcon(favIcon);
+	} else {
+		favIcon_Input.value = "favicon.ico";
+		changeFavIcon("favicon.ico");
 	}
 
 	if (selectCoverImg) {
@@ -389,6 +411,11 @@ showSeconds_Input.onclick = (e) => {
 
 amPm_Input.onclick = (e) => {
 	localStorage.setItem(amPmConstant, amPm_Input.checked);
+};
+
+favIcon_Input.onkeyup = (e) => {
+	changeFavIcon(favIcon_Input.value);
+	localStorage.setItem(favIconConstant, favIcon_Input.value);
 };
 
 selectCoverImg_Input.onchange = (e) => {

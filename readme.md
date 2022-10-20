@@ -6,6 +6,8 @@ A simple startpage for your browser. Some ideas and design are inspired and take
 
 You can either set your default home page...
 
+# Customization
+
 # Attribution
 
 - Base design and some ideas from [r/startpages](https://reddit.com/r/startpages) mainly [startpagev2 by aman333nolawz](https://github.com/aman333nolawz/startpage-v2)

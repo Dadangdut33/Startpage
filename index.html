@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<title>New Tab</title>
-		<link rel="icon" href="favicon.ico" sizes="24x24" />
+		<link id="favicon-display" rel="shortcut icon" href="favicon.ico" />
 		<link rel="stylesheet" href="style.css" type="text/css" media="screen" />
 		<link rel="stylesheet" href="styles/util.css" type="text/css" media="screen" />
 		<link rel="stylesheet" href="styles/animation.css" type="text/css" />
@@ -25,9 +25,9 @@
 			</div>
 			<div class="main">
 				<div class="nav-icons">
-					<span onclick="switchTo('home')">🏠</span>
-					<span onclick="switchTo('setting')">⚙️</span>
-					<span onclick="switchTo('about')">ℹ️</span>
+					<span onclick="switchTo('home')"><img src="images/home.svg" alt="home icon" /></span>
+					<span onclick="switchTo('setting')"><img src="images/setting.svg" alt="setting icon" /></span>
+					<span onclick="switchTo('about')"><img src="images/info.svg" alt="info icon" /></span>
 				</div>
 				<h1 class="greeting">Hello, <span id="user-display">Dadang</span></h1>
 				<h2 id="today">Today is someday</h2>
@@ -44,9 +44,9 @@
 			<div id="scanlines"></div>
 			<div class="main d-flex flex-column flex-gap-1">
 				<div class="nav-icons">
-					<span onclick="switchTo('home')">🏠</span>
-					<span onclick="switchTo('setting')">⚙️</span>
-					<span onclick="switchTo('about')">ℹ️</span>
+					<span onclick="switchTo('home')"><img src="images/home.svg" alt="home icon" /></span>
+					<span onclick="switchTo('setting')"><img src="images/setting.svg" alt="setting icon" /></span>
+					<span onclick="switchTo('about')"><img src="images/info.svg" alt="info icon" /></span>
 				</div>
 				<h1 class="mx-auto">Setting</h1>
 
@@ -58,6 +58,11 @@
 				<div class="input-wrapper">
 					<label for="user">Username</label>
 					<input class="input-field" type="text" id="user" />
+				</div>
+
+				<div class="input-wrapper">
+					<label for="favicon">Favicon <small>(Url)</small></label>
+					<input class="input-field" type="text" id="favicon" />
 				</div>
 
 				<div class="input-wrapper">
@@ -175,9 +180,9 @@
 			<div id="scanlines"></div>
 			<div class="main d-flex flex-column flex-gap-1">
 				<div class="nav-icons">
-					<span onclick="switchTo('home')">🏠</span>
-					<span onclick="switchTo('setting')">⚙️</span>
-					<span onclick="switchTo('about')">ℹ️</span>
+					<span onclick="switchTo('home')"><img src="images/home.svg" alt="home icon" /></span>
+					<span onclick="switchTo('setting')"><img src="images/setting.svg" alt="setting icon" /></span>
+					<span onclick="switchTo('about')"><img src="images/info.svg" alt="info icon" /></span>
 				</div>
 				<h1 class="mx-auto">About</h1>
 				<p>
