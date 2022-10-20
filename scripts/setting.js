@@ -328,6 +328,7 @@ function init_Setting() {
 	} else {
 		coverImgOpacity_Input.value = 0.6;
 		coverImgOpacity_Display.innerText = "(0.6)";
+		coverImg_Display.style.opacity = "0.6";
 		localStorage.setItem(coverImgOpacityConstant, "0.6");
 	}
 
@@ -338,6 +339,7 @@ function init_Setting() {
 	} else {
 		coverImgBlur_Input.value = 2;
 		coverImgBlur_Display.innerText = "(2 px)";
+		coverImg_Display.style.filter = `blur(2px)`;
 		localStorage.setItem(coverImgBlurConstant, "2");
 	}
 
