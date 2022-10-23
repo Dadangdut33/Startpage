@@ -320,6 +320,26 @@ textarea.input-field {
 	background-color: var(--danger-dim-color);
 }
 
+.btn-primary {
+	background-color: var(--primary-color);
+	color: var(--gray);
+}
+
+.btn-primary:hover {
+	cursor: pointer;
+	background-color: var(--primary-dim-color);
+}
+
+.btn-secondary {
+	background-color: var(--secondary-color);
+	color: var(--gray);
+}
+
+.btn-secondary:hover {
+	cursor: pointer;
+	background-color: var(--secondary-dim-color);
+}
+
 .btn-small {
 	font-size: 0.8rem;
 	padding: 0.5em;

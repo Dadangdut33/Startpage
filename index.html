@@ -166,6 +166,17 @@
 					<textarea class="input-field" id="customize-style" rows="12"></textarea>
 				</div>
 
+				<div class="input-wrapper">
+					<p>Data</p>
+					<div class="d-flex">
+						<button class="input-field btn-primary btn-small">
+							<label for="setting-upload" class="pointer">Import Setting</label>
+						</button>
+						<input id="setting-upload" type="file" style="display: none" accept="application/JSON" class="input-field btn-primary btn-small" />
+						<button class="input-field btn-secondary btn-small ms-1" onclick="extractSettingsToJson()">Export Setting</button>
+					</div>
+				</div>
+
 				<hr />
 				<!-- button reset default -->
 				<div class="input-wrapper">

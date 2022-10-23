@@ -76,6 +76,10 @@
 	display: flex;
 }
 
+.flex-align-start {
+	align-items: flex-start;
+}
+
 .flex-column {
 	flex-direction: column;
 }

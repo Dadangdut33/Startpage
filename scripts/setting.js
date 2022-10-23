@@ -40,6 +40,73 @@ const winTitle_Input = document.getElementById(titleConstant),
 	userStyle_Input = document.getElementById(userStyleConstant);
 
 // ------------------------------
+const settingUploadBtn = document.getElementById("setting-upload");
+settingUploadBtn.addEventListener("change", (e) => {
+	// confirmation prompt
+	if (!confirm("Are you sure you want to import settings? This will replace your current setting")) return;
+
+	const file = e.target.files[0];
+	if (!file) return;
+
+	const reader = new FileReader();
+	reader.onload = (e) => {
+		const result = e.target.result;
+		const setting = JSON.parse(result);
+		loadJsonToSettings(setting);
+	};
+	reader.readAsText(file);
+});
+
+const extractSettingsToJson = () => {
+	const settings = {
+		[titleConstant]: winTitle_Input.value,
+		[usernameConstant]: username_Input.value,
+		[selectCoverImgConstant]: selectCoverImg_Input.value,
+		[favIconConstant]: favIcon_Input.value,
+		[coverImgConstant]: coverImg_Input.value,
+		[coverImgOpacityConstant]: coverImgOpacity_Input.value,
+		[coverImgBlurConstant]: coverImgBlur_Input.value,
+		[enableAnimationConstant]: enableAnimation_Input.checked,
+		[showClockInImgConstant]: showClockInImage_Input.checked,
+		[showClockInDateConstant]: showClockInDate_Input.checked,
+		[showSecondsConstant]: showSeconds_Input.checked,
+		[amPmConstant]: amPm_Input.checked,
+		[searchEngineConstant]: searchEngine_Input.value,
+		[bookmarksConstant]: bookmarks_Input.value,
+		[userStyleConstant]: userStyle_Input.value,
+	};
+
+	const jsonSetting = JSON.stringify(settings);
+	const settingData = "data:text/json;charset=utf-8," + encodeURIComponent(jsonSetting);
+	const downloadLink = document.createElement("a");
+	downloadLink.setAttribute("href", settingData);
+	downloadLink.setAttribute("download", "settings.json");
+	document.body.appendChild(downloadLink);
+	downloadLink.click();
+
+	document.body.removeChild(downloadLink);
+};
+
+const loadJsonToSettings = (settings) => {
+	localStorage.setItem(titleConstant, settings[titleConstant]);
+	localStorage.setItem(usernameConstant, settings[usernameConstant]);
+	localStorage.setItem(selectCoverImgConstant, settings[selectCoverImgConstant]);
+	localStorage.setItem(favIconConstant, settings[favIconConstant]);
+	localStorage.setItem(coverImgConstant, settings[coverImgConstant]);
+	localStorage.setItem(coverImgOpacityConstant, settings[coverImgOpacityConstant]);
+	localStorage.setItem(coverImgBlurConstant, settings[coverImgBlurConstant]);
+	localStorage.setItem(enableAnimationConstant, settings[enableAnimationConstant]);
+	localStorage.setItem(showClockInImgConstant, settings[showClockInImgConstant]);
+	localStorage.setItem(showClockInDateConstant, settings[showClockInDateConstant]);
+	localStorage.setItem(showSecondsConstant, settings[showSecondsConstant]);
+	localStorage.setItem(amPmConstant, settings[amPmConstant]);
+	localStorage.setItem(searchEngineConstant, settings[searchEngineConstant]);
+	localStorage.setItem(bookmarksConstant, settings[bookmarksConstant]);
+	localStorage.setItem(userStyleConstant, settings[userStyleConstant]);
+
+	init_Setting();
+};
+
 const coverImageMap = {
 	pic_1: "images/clouds.gif",
 	pic_2: "images/lein.gif",

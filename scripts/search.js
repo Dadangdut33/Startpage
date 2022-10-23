@@ -37,7 +37,10 @@ function parseSearch(q, middleClick = false) {
 	if (q === "") return;
 
 	if (isURL(q)) {
+		// check if not http or https
+		if (!q.startsWith("http://") && !q.startsWith("https://")) q = "https://" + q;
 		window.open(q, middleClick ? "_blank" : "_self");
+
 		return;
 	}
 
