@@ -9,10 +9,18 @@ A simple customizable startpage for your browser. Some ideas and design are insp
 
 # Installation
 
-To use this as your homepage, you have to change the homepage and new tab in your browser settings. You can either set local file, host it yourself, or use [the deployed link on github](https://dadangdut33.github.io/Startpage/). You can also fork this repository and deploy it yourself on your github account (if you prefer it that way).
+To use this as your homepage, you have to change the homepage and new tab in your browser settings. You can either:
 
-- Firefox: I use [new tab override](https://addons.mozilla.org/en-US/firefox/addon/new-tab-override/)
-- Chromium: [Custom new tab](https://chrome.google.com/webstore/detail/custom-new-tab-url/mmjbdbjnoablegbkcklggeknkfcjkjia?hl=en)
+- Set path from local file
+- Use [the deployed link on github](https://dadangdut33.github.io/Startpage/).
+- Host it yourself on your own website or Fork this repository and deploy it on your github account (if you prefer it that way).
+- Host it locally by using a simple web server like [fenix](https://github.com/coreybutler/fenix/) (I recommend using the beta 3.0 version, it has auto startup and stuff)
+
+Extension that you can use to override the new tab page:
+
+- Firefox: [new tab override](https://addons.mozilla.org/en-US/firefox/addon/new-tab-override/) (I use this)
+- Chromium: [Custom New Tab URL](https://chrome.google.com/webstore/detail/custom-new-tab-url/mmjbdbjnoablegbkcklggeknkfcjkjia?hl=en)
+- Edge: [Custom new tab](https://microsoftedge.microsoft.com/addons/detail/custom-new-tab/onagfgjlokaciajhjmajljcfanonbmia)
 
 # Customization
 

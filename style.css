@@ -6,7 +6,7 @@
 
 @font-face {
 	font-family: "Fira Code";
-	src: local("FiraCode Nerd Font"), url("fonts/Fira Code Regular Nerd Font Complete.woff2"), local("monospace");
+	src: local("FiraCode Nerd Font"), url("fonts/Fira-Code-Regular-Nerd-Font-Complete.woff2"), local("monospace");
 	font-display: swap;
 }
 
